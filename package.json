@@ -1,0 +1,32 @@
+{
+  "name": "clinico-systems",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arabic-first clinic management platform",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm run setup:local && concurrently -k -n API,WEB -c cyan,green \"npm:dev:api\" \"npm:dev:web\"",
+    "setup:local": "npm run migrate && npm run seed",
+    "dev:api": "npm --workspace backend run dev",
+    "dev:web": "npm --workspace frontend run dev",
+    "build": "npm --workspace frontend run build",
+    "vercel:build": "npm run build && node scripts/prepare-vercel-assets.mjs",
+    "start": "npm --workspace backend run start",
+    "migrate": "npm --workspace backend run migrate",
+    "seed": "npm --workspace backend run seed",
+    "test": "npm --workspace backend run test",
+    "db:reset": "npm --workspace backend run db:reset"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4"
+  },
+  "overrides": {
+    "shell-quote": "1.11.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

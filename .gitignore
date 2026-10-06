@@ -1,0 +1,16 @@
+node_modules/
+.vercel/
+frontend/dist/
+/public/
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+frontend/.env.*
+backend/data/*.sqlite*
+backend/uploads/**
+backend/backups/**
+*.log
+.DS_Store
+coverage/
